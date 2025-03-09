@@ -21,7 +21,7 @@ An intelligent web-based diagnostic tool that analyzes chest X-rays using a mach
 - Frontend: (Lo-Fi in Draw.io)
 - Backend: Python Flask
 - Database: SQLite
-- Machine Learning: TensorFlow / Keras
+- Machine Learning: N/A
 - Version Control: Git + GitHub
 
 ## 🚀 How to Run the App
