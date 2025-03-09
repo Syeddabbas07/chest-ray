@@ -18,7 +18,7 @@ An intelligent web-based diagnostic tool that analyzes chest X-rays using a mach
 - Dashboards tailored to user roles
 
 ## 🛠️ Tech Stack
-- Frontend: HTML, CSS (Lo-Fi in Draw.io)
+- Frontend: (Lo-Fi in Draw.io)
 - Backend: Python Flask
 - Database: SQLite
 - Machine Learning: TensorFlow / Keras
