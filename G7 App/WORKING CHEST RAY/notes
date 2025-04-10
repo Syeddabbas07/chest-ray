@@ -1,4 +1,0 @@
-config
-testing on postman
-add database to models for test case implementation 
-change the dictionary values and routing to take variables from app.db of sqlite
