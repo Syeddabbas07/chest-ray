@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image:url("../static/lungs.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+
+header {
+    background: rgb(145, 250, 250);
+    padding: 30px;
+    opacity: 0.9;
+    
+}
+
+header h1 {
+    margin: 0;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header p {
+    margin: 6px 0;
+    font-size: 20px
+}
+
+.lang {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.9em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+    background: #777676;
+    opacity: 0.9;
+}
+
+nav button {
+    background: #000000;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    opacity:1;
+    
+}
+
+nav button:hover{
+    background: #535252;
+}
+
+
+
+main {
+    display: flex;
+    padding: 50px;
+    gap: 90px;
+    margin-left: 100px;
+}
+
+.image{
+    text-align: center;
+    background: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.image img {
+    width: 180px;
+    height: 230px;
+    border-radius: 2px;
+}
+
+.image p {
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+.text{
+    width: 250px;
+    height: 150px;
+    padding: 30px 40px;
+    background: white;
+    border-radius: 10px;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: #333;
+} 
+
+#bgRegister {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url('lungs.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.PRegister{
+padding-bottom: 70px;
+padding-top: 50px;
+    color:#000000;
+    font-size: 20px;
+}
+.PRegister button{
+    background-color: #000000;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    padding: 15px 30px;
+    cursor: pointer;
+}
+.PRegister button:hover{
+    background-color: #535252;
+}
+
+.PLogin{
+    
+    padding: 30px;
+    color:#000000;
+    font-size: 20px;
+    
+}
+.PLogin button{
+    background-color: #000000;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    padding: 15px 30px;
+    cursor: pointer;
+}
+.PLogin button:hover{
+    background-color: #535252;
+}
+#aboutus {
+    background-color: #949191;
+
+}
+
+#aboutus h2{
+    font-size: 50px;
+}
+
+#aboutus p{
+    font-size: 25px;
+}
+
+#service{
+    background-color: #949191;
+
+}
+
+#service h2{
+    font-size: 50px;
+}
+
+#service p{
+    font-size: 25px;
+}

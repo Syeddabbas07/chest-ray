@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experts Dashboard</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: url("{{ url_for('static', filename='lungs.png') }}");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.lang {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+header {
+    background: rgb(145, 250, 250);
+    padding: 30px;
+    opacity: 0.9;
+    
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+nav {
+    margin-top: 180px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px;
+    background: transparent;
+    opacity: 1;
+}
+
+nav button {
+    background: #383535;
+    color: white;
+    border: 2px solid black;
+    padding: 25px 90px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    opacity:1;
+    
+}
+nav button:hover{
+    background-color: rgb(104, 95, 89);
+}
+
+.lgbutton button{
+    position: absolute;
+    padding: 10px 15px;
+    top: 10px;
+    right: 5px;
+    font-size: 0.8em;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+
+
+}
+.lgbutton button:hover{
+    background-color: rgb(26, 24, 24);
+}
+
+
+</style>
+</head>
+<body>
+    <div class="background">
+       
+    </div>
+    <header>
+        <h1>EXPERT'S  DASHBOARD</h1>
+        <div class="lang">
+            <label for="language-select">Language</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+        <div class="lgbutton">
+            <a href="{{ url_for('routes.homepage') }}"><button>Log Out</button></a>
+        </div>
+    </header>
+
+
+    <main>
+
+        
+        <nav>
+            <div class="button-container">
+            <a href="{{ url_for('routes.patient_list') }}"><button>Patient List</button></a>
+            {% for patient in patients %}
+                <div class="patient-section">
+                {% for xray in patient.xrays %}
+                    <a href="{{ url_for('routes.expert_reports', scan_id=xray.scan_id) }}">
+                    <button>X-rays for {{ patient.name }}</button>
+                    </a>
+                {% endfor %}
+                <a href="{{ url_for('routes.expert_treatment', patient_id=patient.patient_id) }}">
+                    <button>Treatment for {{ patient.name }}</button>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+        </nav>
+    <style>
+        .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        }
+
+        .patient-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        }
+
+        nav button {
+        width: 200px;
+        }
+    </style>
+    </nav>
+    </main>
+</body>
+</html>

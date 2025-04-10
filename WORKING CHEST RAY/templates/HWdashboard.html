@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health-Worker Dashboard</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: url("{{ url_for('static', filename='lungs.png') }}");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.lang {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+.Next {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    margin-bottom: 70px;
+}
+
+.Next button{
+    position: absolute;
+    padding: 10px 20px;
+    top: 10px;
+    right: 5px;
+    font-size: 0.8em;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(96, 182, 182);
+}
+
+.lgbutton button{
+    position: absolute;
+    padding: 10px 15px;
+    top: 10px;
+    right: 5px;
+    font-size: 0.8em;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.lgbutton button:hover{
+    background-color: rgb(100, 99, 99);
+}
+header {
+    background: rgb(145, 250, 250);
+    padding: 30px;
+    opacity: 0.9;
+    
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px;
+    background: #777676;
+    opacity: 0.9;
+}
+
+nav button {
+    background: #000000;
+    color: white;
+    border:none;
+    padding: 15px 40px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    opacity:1;
+    
+}
+button:hover{
+    background-color: rgb(105, 105, 105);
+}
+
+.Hw{
+    display:flex;
+
+margin-top: 30px;
+margin-left: 70px;
+gap: 30px;
+opacity: 0.9;
+}
+.Steps{
+    background-color:rgb(211, 172, 255);
+    align-items: center;
+    text-align:left;
+    padding: 20px;
+    border-radius: 30px;
+    border: 2px solid rgb(91, 91, 139);
+    color: #000000;
+    text-decoration: none;
+
+}
+.Steps h1{
+    text-align: center;
+}
+.form{
+    background: rgb(235, 233, 233);
+    padding: 40px;
+    border: 2px solid rgb(87, 79, 79);
+    border-radius: 6px;
+    color: rgb(0, 0, 0);
+    width: 350px;
+    text-align: center;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+ 
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
+    border: 2px solid rgb(0, 0, 0);
+
+}
+
+
+</style>
+</head>
+<body>
+    <div class="background">
+       
+    </div>
+    <header>
+        <div class="lgbutton">
+            <a href="{{ url_for('routes.homepage') }}"><button>Log Out</button></a>
+        </div>
+        <h1>Health-Worker Dashboard</h1>
+        <div class="lang">
+            <label for="language-select">Language</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+    </header>
+    <nav>
+        
+        <a href="{{ url_for('routes.hw_profile') }}"><button>Your Profile</button></a>
+        <a href="{{ url_for('routes.patient_register') }}"><button>Register a Patient</button></a> 
+        <a href="{{ url_for('routes.hw_records') }}"><button>Patient Records</button></a>
+        <a href="#"><button>Support</button></a>
+     </nav>
+
+
+    <main>
+        <div class="Hw">
+            <div class="Steps">
+                <h1>Instructions</h1>
+                <ol>
+                    <li>Make sure the patient is registered.</li><br>
+                    <li>Click "Register a patient" if not registered.</li><br>
+                    <li>Ensure you have captured an X-ray image.</li><br>
+                    <li>Click on the upload icon.</li><br>
+                    <li>Upload the patient's X-ray image.</li><br>
+                    <li>Click "Next" for analysis.</li>
+                </ol> 
+                
+            </div>
+            <div class="form">
+                <h1>Patient Details</h1>
+                <input type="text" id="Fname" placeholder="Full name"><br>
+                <input type="text" id="ID" placeholder="Patient ID"><br>
+                <input type="text" id="DOB" placeholder="Date of Birth">
+            </div>
+            <div class="img">
+                <h1>Upload X-ray</h1>
+                <form action="{{ url_for('routes.upload_xray') }}" method="POST" enctype="multipart/form-data">
+                    <label for="patient_id">Patient ID:</label>
+                    <input type="text" name="patient_id" id="patient_id" placeholder="Enter Patient ID" required><br><br>
+                    <input type="file" name="xray_file" accept="image/*" required><br><br>
+                    <button type="submit">Upload and Analyze</button>
+                </form>
+            </div>
+</body>
+</html>
