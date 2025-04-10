@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register-Chest Ray</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mypage.css') }}">
+</head>
+<body>
+  <div id="bgRegister"></div>
+    <header style="background-color: cyan; padding:30px;">
+        <h1 style="text-align: center;  font-size: 30px;"> Register or sign in</h1>
+      </header>
+
+    <div class="PRegister">
+      <h2> New here? Register with us!</h2>
+      <a href="{{ url_for('routes.patient_register') }}"><button>Register</button></a>
+    </div>
+    <div class="PLogin">
+      <h2> Already have an account? Log in!</h2>
+      <a href="{{ url_for('routes.login') }}"><button>Log in</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            text-align: center;
+            margin: 0;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background-image: url("{{ url_for('static', filename='lungs.png') }}");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        header {
+            background: rgb(172, 252, 252);
+            padding: 30px;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        header p {
+            margin: 6px 0;
+            font-size: 1.4em;
+        }
+
+        .patientID {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .lgbutton button {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            padding: 10px 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 10px;
+            background: #777676;
+            opacity: 0.9;
+        }
+
+        nav button {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        nav button:hover {
+            background-color: rgb(51, 51, 51);
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 30px;
+            text-align: left;
+            margin-left: 40px;
+        }
+
+        .PatientDetails {
+            background: rgba(95, 222, 231, 0.8);
+            border-radius: 10px;
+            width: 800px;
+            margin: 20px auto;
+            text-align: left;
+            padding: 20px 30px;
+        }
+
+        .PatientDetails h3 {
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        .PatientDetails p {
+            font-size: 18px;
+            color: #000000;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .health {
+            display: flex;
+            align-items: center;
+        }
+
+        .health .circle {
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+
+        .colour-coded-circles {
+            margin-top: 30px;
+          
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <header>
+        <h1>Patient Dashboard</h1>
+        
+        <div class="lgbutton">
+            <a href="{{ url_for('routes.homepage') }}"><button>Log Out</button></a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('routes.patient_xrays') }}"><button>X-rays</button></a>
+        <a href="{{ url_for('routes.patient_prescriptions') }}"><button>Prescription</button></a>
+        <a href="{{ url_for('routes.patient_health_tips') }}"><button>Health Tips</button></a>
+        <a href="{{ url_for('routes.patient_support') }}"><button>Support</button></a>
+    </nav>
+
+    <main>
+        <h2>Patient Summary</h2>
+        <section class="PatientDetails">
+            <div class="PID">
+                <h3>Patient ID:</h3>
+                
+            </div>
+            <div class="Pname">
+                <h3>Patient Name:</h3>
+                <p>Chest Ray Patient Example</p>
+            </div>
+            <div class="health">
+                <h3>Health Status:</h3>
+                <div class="circle"></div>
+                <p>Happy to see that!</p>
+            </div>
+            <div class="tips">
+                <h3>Health care tips:</h3>
+                <p>
+                    Maintain a healthy lifestyle to avoid any issues in the future!<br>
+                    For further healthy practices, go to our health care section!
+                </p>
+            </div>
+        </section>
+
+      
+    </main>
+</body>
+</html>

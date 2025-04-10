@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+ 
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #999999;
+    margin: 0;
+}
+
+.login {
+    background: rgb(235, 233, 233);
+    padding: 30px;
+    border: 2px solid rgb(87, 79, 79);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    width: 350px;
+    text-align: center;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+input {
+    background: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    width: 280px;
+    height: 25px;
+    text-align: center;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+}
+form{
+    background: rgb(235, 233, 233);
+    padding: 30px;
+    border: 2px solid rgb(87, 79, 79);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    width: 350px;
+    text-align: center;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background: #4f5357;
+    color: white;
+    border-radius: 12px;
+    border: 3px solid black;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.login h4 {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: url("{{ url_for('static', filename='lungs.png') }}");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.lang {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+}
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <form method="POST" action="{{ url_for('routes.patient_register') }}">
+        <h2>Pateint Registration</h2>
+        <input type="text" name="Fname" id="Fname" placeholder="Full name" required>
+        <input type="date"  name="Dob" id="DOB" placeholder="Date of Birth" required>
+        <input type="text" name="HA" id="HAD" placeholder="Home Address" required>
+        <input type="number" name="Contact" id="CN" placeholder="Contact Number" required>
+        <input type="text"  name="email" id="Email" placeholder="Email" required>
+        <input type="text" name="nok" id="NOK" placeholder="Next of kin" required>
+        <input type="text" name="nokd" id="NOKD" placeholder="Next of kin details" required>
+        <input type="password" name="password" id="password" placeholder="Set Patient Password" required>
+        <button type="submit">Register</button>
+        </form>
+        <div class="lang">
+            <label for="language-select">Language</label>
+            <select id="language-select">
+                <option value="en">English</option>
+            </select>
+        </div>
+</body>
+</html>
