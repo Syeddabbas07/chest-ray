@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescriptions</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-image: url("{{ url_for('static', filename='lungs.png') }}");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.lang {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.9em;
+}
+header {
+    background: rgb(145, 250, 250);
+    padding: 30px;
+    opacity: 0.9;
+    
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.page{
+    align-items: center;
+    background-color: rgb(219, 238, 255);
+    opacity:0.9;
+    padding: 20px;
+    width: 400px;
+    margin-left: 470px;
+    margin-top: 40px;
+}
+
+</style>
+</head>
+<body>
+    <div class="background">
+       
+    </div>
+    <header>
+        <h1>PRESCRIPTIONS</h1>
+        <div class="lang">
+            <label for="language-select">Language</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+    </header>
+
+
+    <main>
+        {% for treatment in treatments %}
+        <div class="page">
+            <h2>Doctor: {{ treatment.expert.user.name }}</h2>
+            <h3>Date: {{ treatment.date_prescribed.strftime('%d/%m/%Y') }}</h3>
+            <h2>Medicines:</h2>
+            <h3>
+                {% for med in treatment.prescribed_medications.split(',') %}
+                <li>{{ med.strip() }}</li>
+                {% endfor %}
+            </h3>
+            <h2>How to Take</h2>
+            <h3>Dosage: {{ treatment.dosage_frequency.value }}</h3>
+            <h3>Duration: {{ treatment.duration.value }}</h3>
+        </div>
+        {% endfor %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+To run the provided SeleniumBase test file, follow these steps:
+
+1. Install Prerequisites
+Ensure you have Python installed and set up on your system. Then, install the required dependencies:
+
+pip install seleniumbase
+pip install pytest
+
+2. Save the File
+Save the code in a file, for example, test_automated.py.
+
+
+3. Run the Tests
+Use pytest to execute the tests. Open the integrated terminal in Visual Studio Code and run:
+
+pytest test_automated.py
+
+SeleniumBase integrates with pytest, so it will automatically handle the test execution.
