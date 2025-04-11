@@ -18,10 +18,10 @@ An intelligent web-based diagnostic tool that analyzes chest X-rays using a mach
 - Dashboards tailored to user roles
 
 ## 🛠️ Tech Stack
-- Frontend: (Lo-Fi in Draw.io)
+- Frontend: (Lo-Fi in Draw.io) and HTML
 - Backend: Python Flask
 - Database: SQLite
-- Machine Learning: N/A
+- Machine Learning: CNN
 - Version Control: Git + GitHub
 
 ## 🚀 How to Run the App
@@ -30,24 +30,29 @@ An intelligent web-based diagnostic tool that analyzes chest X-rays using a mach
 ## 📂 Project Structure
 ```
 chest-ray-app/
+├── __pycache__
 │
 ├── app/
-│   ├── static/
-│   ├── templates/
 │   ├── __init__.py
 │   ├── routes.py
 │   ├── models.py
 │   └── ml_model.py
 │
-├── tests/
-│   └── test_routes.py
+├── templates/ --- CONTAIN HTML FILES
 │
-├── database/
-│   └── patients.db
+├── static/  ---- HTML PNG & CSS
+│   ├── uploads/  ---- XRAY IMAGE STORE PATH
 │
+├── instance/
+│   └── ChestXray.db
+│
+├── HasPna_v2.keras
+├── config.py
+├── notes.txt
+├── Pytest.txt
 ├── run.py
+├── testcase.py
 ├── README.md
-├── requirements.txt
 └── .gitignore
 ```
 
