@@ -11,7 +11,7 @@ An intelligent web-based diagnostic tool that analyzes chest X-rays using a mach
 - Ade
 
 ## 💡 Features
-- Role-based login (Patient, Non-Expert, Expert)
+- Role-based login (Patient, Health-Worker, Expert)
 - Upload chest X-rays for ML-based pneumonia diagnosis
 - View reports and treatment recommendations
 - Patient history and prescription management
