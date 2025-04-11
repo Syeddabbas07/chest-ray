@@ -30,8 +30,6 @@ An intelligent web-based diagnostic tool that analyzes chest X-rays using a mach
 ## 📂 Project Structure
 ```
 chest-ray-app/
-├── __pycache__
-│
 ├── app/
 │   ├── __init__.py
 │   ├── routes.py
